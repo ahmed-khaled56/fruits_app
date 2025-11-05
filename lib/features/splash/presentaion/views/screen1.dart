@@ -6,6 +6,6 @@ class Screen1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SafeArea(child: Screen1Body()));
+    return Scaffold(body: Screen1Body());
   }
 }

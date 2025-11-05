@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:task_1/features/splash/presentaion/views/splash_view.dart';
 
-void main() {
+void main() async {
+  // await SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  //   DeviceOrientation.portraitDown,
+  //   DeviceOrientation.landscapeLeft,
+  //   DeviceOrientation.landscapeRight,
+  // ]);
   runApp(const MyApp());
 }
 
@@ -11,6 +18,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: SplashView());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: SplashView());
   }
 }
