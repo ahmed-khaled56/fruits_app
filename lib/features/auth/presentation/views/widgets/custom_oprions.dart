@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_1/features/auth/presentation/views/signUp_screen.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/custom_row.dart';
 
 class CustomOptions extends StatelessWidget {
@@ -9,6 +10,14 @@ class CustomOptions extends StatelessWidget {
     return Column(
       children: [
         CustomRow(
+          lineWidth: MediaQuery.sizeOf(context).width * 0.14,
+          linehieght: MediaQuery.sizeOf(context).height * 000.001,
+          ontap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SignupScreen()),
+            );
+          },
           fontsize1: 16,
           fontsize2: 16,
           color1: Colors.black,
@@ -18,6 +27,7 @@ class CustomOptions extends StatelessWidget {
         ),
         SizedBox(height: MediaQuery.of(context).size.height * .0214),
         CustomRow(
+          ontap: () {},
           fontsize1: 16,
           fontsize2: 16,
           color1: Color(0xff88909C),
@@ -26,6 +36,7 @@ class CustomOptions extends StatelessWidget {
           text2: "Terms of service ",
         ),
         CustomRow(
+          ontap: () {},
           fontsize1: 16,
           fontsize2: 16,
           color1: Color(0xff88909C),

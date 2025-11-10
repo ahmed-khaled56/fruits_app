@@ -11,6 +11,10 @@ class CustomButton2 extends StatelessWidget {
     required this.Textcolor,
     @required this.icon,
     @required this.imageLink,
+    required this.hieght,
+    required this.width,
+    required this.fontSize,
+    @required this.fontWeight,
   });
 
   final void Function() onPressed;
@@ -20,11 +24,17 @@ class CustomButton2 extends StatelessWidget {
   final Color? icontcolor;
   final IconData? icon;
   final String? imageLink;
+  final double? hieght;
+  final double? width;
+  final double? fontSize;
+  final FontWeight? fontWeight;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.76,
-      height: MediaQuery.of(context).size.height * 0.066,
+      width: width,
+
+      height: hieght,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: buttoncolor,
@@ -46,13 +56,16 @@ class CustomButton2 extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image(image: AssetImage(imageLink!)),
+            imageLink != null ? Image(image: AssetImage(imageLink!)) : Text(""),
             Icon(icon, color: icontcolor),
             Text(
               lable,
               style: TextStyle(
-                fontSize: getResponsiveFontSize(fontSize: 13, context: context),
-                fontWeight: FontWeight.normal,
+                fontSize: getResponsiveFontSize(
+                  fontSize: fontSize!,
+                  context: context,
+                ),
+                fontWeight: fontWeight == null ? FontWeight.normal : fontWeight,
                 color: Textcolor,
               ),
             ),

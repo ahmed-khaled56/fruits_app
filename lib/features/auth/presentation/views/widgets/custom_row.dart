@@ -10,6 +10,9 @@ class CustomRow extends StatelessWidget {
     required this.fontsize2,
     required this.color1,
     required this.color2,
+    required this.ontap,
+    @required this.lineWidth,
+    @required this.linehieght,
   });
   final String text1;
   final String text2;
@@ -17,7 +20,9 @@ class CustomRow extends StatelessWidget {
   final double fontsize2;
   final Color color1;
   final Color color2;
-
+  final void Function()? ontap;
+  final double? lineWidth;
+  final double? linehieght;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -32,13 +37,45 @@ class CustomRow extends StatelessWidget {
           ),
         ),
 
-        Text(
-          text2,
-          style: TextStyle(
-            fontSize: getResponsiveFontSize(fontSize: 16, context: context),
-            fontWeight: FontWeight.normal,
-            color: color2,
-          ),
+        GestureDetector(
+          onTap: ontap,
+
+          child: lineWidth != null
+              ? Column(
+                  children: [
+                    Text(
+                      text2,
+                      style: TextStyle(
+                        fontSize: getResponsiveFontSize(
+                          fontSize: 16,
+                          context: context,
+                        ),
+                        fontWeight: FontWeight.normal,
+                        color: color2,
+                      ),
+                    ),
+
+                    Container(
+                      width: lineWidth,
+                      height: linehieght,
+                      color: Color(0xff004D8E),
+                      margin: EdgeInsets.only(
+                        top: MediaQuery.sizeOf(context).height * .00429,
+                      ),
+                    ),
+                  ],
+                )
+              : Text(
+                  text2,
+                  style: TextStyle(
+                    fontSize: getResponsiveFontSize(
+                      fontSize: 16,
+                      context: context,
+                    ),
+                    fontWeight: FontWeight.normal,
+                    color: color2,
+                  ),
+                ),
         ),
       ],
     );
