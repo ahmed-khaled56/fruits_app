@@ -6,34 +6,34 @@ class SplashViewBodyPhoneLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final orenationDiriction = MediaQuery.of(context).orientation;
-    print(orenationDiriction);
+    final isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
 
-    final realHeight = size.height > size.width ? size.height : size.width;
-    final realWidth = size.width < size.height ? size.width : size.height;
+    final h = size.height;
+    final w = size.width;
 
     return Column(
       children: [
-        SizedBox(height: realHeight * .21),
+        SizedBox(height: isPortrait ? h * .21 : h * 0.08),
 
-        /// الصورة الأولى
-        FittedBox(
-          child: Image.asset(
-            "assets/images/Group_2856.png",
-            fit: BoxFit.fitWidth,
-            width: realWidth * .9,
-            height: realHeight * .2398,
+        SizedBox(
+          width: w * .9,
+          height: isPortrait ? h * .2398 : h * 35,
+          child: FittedBox(
+            child: Image.asset(
+              "assets/images/Group_2856.png",
+              fit: BoxFit.fitWidth,
+            ),
           ),
         ),
 
-        SizedBox(height: realHeight * 0.1716),
+        SizedBox(height: isPortrait ? h * 0.12 : h * 0.04),
 
-        /// الصورة الثانية
         Expanded(
           child: Image.asset(
             "assets/images/3434341.png",
             fit: BoxFit.cover,
-            width: realWidth,
+            width: w,
           ),
         ),
       ],

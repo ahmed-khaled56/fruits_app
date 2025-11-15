@@ -9,19 +9,25 @@ class Screen1Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final orenationDiriction = MediaQuery.of(context).orientation;
+    print(orenationDiriction);
+
+    final realHeight = size.height > size.width ? size.height : size.width;
+    final realWidth = size.width < size.height ? size.width : size.height;
     return Column(
       children: [
-        SizedBox(height: MediaQuery.of(context).size.height * 0.08154),
+        SizedBox(height: realHeight * 0.08154),
         custom_skip(),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.06545),
+        SizedBox(height: realHeight * 0.06545),
 
         Image(
           image: AssetImage("assets/images/screen1.png"),
 
-          height: MediaQuery.of(context).size.height * .2932,
-          width: MediaQuery.of(context).size.width * .6630,
+          height: realHeight * .2932,
+          width: realWidth * .6630,
         ),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.02648),
+        SizedBox(height: realHeight * 0.02648),
 
         Text(
           "E Shopping",
@@ -33,7 +39,7 @@ class Screen1Body extends StatelessWidget {
             color: Color(0xff2F2E41),
           ),
         ),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.018),
+        SizedBox(height: realHeight * 0.018),
         Text(
           "Explore op organic fruits & grab them",
 
@@ -44,14 +50,14 @@ class Screen1Body extends StatelessWidget {
             color: Color(0xff78787C),
           ),
         ),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.056),
+        SizedBox(height: realHeight * 0.056),
         Image(
           image: AssetImage("assets/images/dot.png"),
 
-          height: MediaQuery.of(context).size.height * .01287,
-          width: MediaQuery.of(context).size.width * .14418,
+          height: realHeight * .01287,
+          width: realWidth * .14418,
         ),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.0933),
+        SizedBox(height: realHeight * 0.0933),
         CustomButton(
           lable: "Nexet",
           onPressed: () {
@@ -61,9 +67,7 @@ class Screen1Body extends StatelessWidget {
             );
           },
         ),
-        Expanded(
-          child: SizedBox(height: MediaQuery.of(context).size.height * 0.197),
-        ),
+        Expanded(child: SizedBox(height: realHeight * 0.197)),
       ],
     );
   }

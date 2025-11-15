@@ -8,9 +8,16 @@ class CustomButton extends StatelessWidget {
   final String lable;
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final orenationDiriction = MediaQuery.of(context).orientation;
+    print(orenationDiriction);
+
+    final realHeight = size.height > size.width ? size.height : size.width;
+    final realWidth = size.width < size.height ? size.width : size.height;
+
     return SizedBox(
-      width: MediaQuery.sizeOf(context).width * 0.36,
-      height: MediaQuery.sizeOf(context).height * 0.05579,
+      width: realWidth * 0.36,
+      height: realHeight * 0.05579,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: Color(0xff204F38), // button color

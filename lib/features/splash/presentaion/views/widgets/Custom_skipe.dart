@@ -6,15 +6,19 @@ class custom_skip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final orenationDiriction = MediaQuery.of(context).orientation;
+    print(orenationDiriction);
+
+    final realHeight = size.height > size.width ? size.height : size.width;
+    final realWidth = size.width < size.height ? size.width : size.height;
     return Column(
       children: [
         Align(
           alignment: Alignment.topRight,
 
           child: Padding(
-            padding: EdgeInsets.only(
-              right: MediaQuery.sizeOf(context).width * 0.086,
-            ),
+            padding: EdgeInsets.only(right: realWidth * 0.086),
             child: Text(
               "Skip",
               style: TextStyle(
@@ -32,16 +36,12 @@ class custom_skip extends StatelessWidget {
         Align(
           alignment: Alignment.topRight,
           child: Padding(
-            padding: EdgeInsets.only(
-              right: MediaQuery.sizeOf(context).width * 0.08139,
-            ),
+            padding: EdgeInsets.only(right: realWidth * 0.08139),
             child: Container(
-              width: MediaQuery.sizeOf(context).width * 0.07511,
-              height: MediaQuery.sizeOf(context).height * .001,
+              width: realWidth * 0.07511,
+              height: realHeight * .001,
               color: Color(0xff656565),
-              margin: EdgeInsets.only(
-                top: MediaQuery.sizeOf(context).height * .00429,
-              ),
+              margin: EdgeInsets.only(top: realHeight * .00429),
             ),
           ),
         ),

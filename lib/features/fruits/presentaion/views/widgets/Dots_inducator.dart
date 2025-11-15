@@ -20,14 +20,14 @@ class DotsIndicator extends StatelessWidget {
         final bool isActive = index == currentIndex;
         return Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: MediaQuery.sizeOf(context).width * .0139,
+            horizontal: MediaQuery.sizeOf(context).width * .0049,
           ),
           child: CircleAvatar(
             backgroundColor: const Color(0xff707070),
-            radius: 8,
+            radius: 4,
             child: CircleAvatar(
               backgroundColor: isActive ? color : Colors.white,
-              radius: 6,
+              radius: 2,
             ),
           ),
         );
