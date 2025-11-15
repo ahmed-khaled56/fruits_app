@@ -3,7 +3,6 @@ import 'package:task_1/cores/widgets/responsive_text_method.dart';
 import 'package:task_1/features/splash/presentaion/views/screen3.dart';
 import 'package:task_1/features/splash/presentaion/views/widgets/custom_button.dart';
 import 'package:task_1/features/splash/presentaion/views/widgets/Custom_skipe.dart';
-import 'package:task_1/features/splash/presentaion/views/widgets/screen3_body.dart';
 
 class Screen2Body extends StatelessWidget {
   const Screen2Body({super.key});

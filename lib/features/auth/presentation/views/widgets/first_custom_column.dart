@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 
@@ -19,7 +18,7 @@ class FirstCustomColumn extends StatelessWidget {
           ),
           child: Align(
             alignment: Alignment.topLeft,
-            child: Container(
+            child: SizedBox(
               width: MediaQuery.of(context).size.width * .0319,
               height: MediaQuery.of(context).size.height * .01456,
               child: GestureDetector(

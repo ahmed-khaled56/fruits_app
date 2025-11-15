@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_1/features/auth/presentation/views/signUp_screen.dart';
+import 'package:task_1/features/auth/presentation/views/scondLoginScreen.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/custom_row.dart';
 
 class CustomOptions extends StatelessWidget {
@@ -10,12 +10,13 @@ class CustomOptions extends StatelessWidget {
     return Column(
       children: [
         CustomRow(
+          decoration: TextDecoration.underline,
           lineWidth: MediaQuery.sizeOf(context).width * 0.14,
           linehieght: MediaQuery.sizeOf(context).height * 000.001,
           ontap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => SignupScreen()),
+              MaterialPageRoute(builder: (context) => Scondloginscreen()),
             );
           },
           fontsize1: 16,

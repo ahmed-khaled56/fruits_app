@@ -4,17 +4,17 @@ import 'package:task_1/cores/widgets/responsive_text_method.dart';
 class CustomButton2 extends StatelessWidget {
   const CustomButton2({
     super.key,
-    @required this.icontcolor,
+    this.icontcolor,
     required this.lable,
     required this.onPressed,
     required this.buttoncolor,
     required this.Textcolor,
-    @required this.icon,
-    @required this.imageLink,
-    required this.hieght,
-    required this.width,
-    required this.fontSize,
-    @required this.fontWeight,
+    this.icon,
+    this.imageLink,
+    this.hieght,
+    this.width,
+    this.fontSize,
+    this.fontWeight,
   });
 
   final void Function() onPressed;
@@ -31,41 +31,46 @@ class CustomButton2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
 
-      height: hieght,
+    return SizedBox(
+      width: width ?? screenWidth * 0.8,
+      height: hieght ?? screenHeight * 0.065,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: buttoncolor,
-          foregroundColor: Colors.white,
-          // shadowColor: Colors.black, // shadow color
-          elevation: 4,
-
+          elevation: 3,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25),
-            side: BorderSide(
-              //
+            side: const BorderSide(
               color: Colors.black,
-              width: MediaQuery.of(context).size.width * 00.23148,
+              width: 1.2, // خليها قيمة ثابتة بسيطة
             ),
           ),
-          // padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
         ),
         onPressed: onPressed,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            imageLink != null ? Image(image: AssetImage(imageLink!)) : Text(""),
-            Icon(icon, color: icontcolor),
+            if (imageLink != null)
+              Padding(
+                padding: const EdgeInsets.only(right: 6.0),
+                child: Image.asset(imageLink!, height: 20),
+              ),
+            if (icon != null)
+              Padding(
+                padding: const EdgeInsets.only(right: 6.0),
+                child: Icon(icon, color: icontcolor),
+              ),
             Text(
               lable,
               style: TextStyle(
                 fontSize: getResponsiveFontSize(
-                  fontSize: fontSize!,
+                  fontSize: fontSize ?? 16,
                   context: context,
                 ),
-                fontWeight: fontWeight == null ? FontWeight.normal : fontWeight,
+                fontWeight: fontWeight ?? FontWeight.w600,
                 color: Textcolor,
               ),
             ),

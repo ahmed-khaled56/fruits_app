@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 
@@ -43,7 +42,7 @@ class CustomTextFeild extends StatelessWidget {
             border: InputBorder.none,
             contentPadding: const EdgeInsets.symmetric(
               horizontal: 16,
-              vertical: 13,
+              vertical: 11,
             ),
           ),
         ),

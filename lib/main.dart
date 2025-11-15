@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:task_1/features/splash/presentaion/views/splash_view.dart';
 
 void main() async {

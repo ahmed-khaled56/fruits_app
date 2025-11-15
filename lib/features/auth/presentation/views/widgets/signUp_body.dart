@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 import 'package:task_1/features/auth/presentation/views/scondLoginScreen.dart';
-import 'package:task_1/features/auth/presentation/views/widgets/customButtons.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/custom_row.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/custom_text_feild.dart';
@@ -20,6 +18,7 @@ class _SignupBodyState extends State<SignupBody> {
   @override
   final _formKey = GlobalKey<FormState>();
 
+  @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
@@ -49,7 +48,7 @@ class _SignupBodyState extends State<SignupBody> {
           CustomTextFeild(
             lable: "Full name",
             hintText: "Firist and Last Name",
-            hight: MediaQuery.sizeOf(context).height * .05862,
+            hight: MediaQuery.sizeOf(context).height * .0386,
             width: MediaQuery.sizeOf(context).width * .8069,
           ),
           Padding(
@@ -89,7 +88,7 @@ class _SignupBodyState extends State<SignupBody> {
           ),
 
           PhoneField(
-            hieght: MediaQuery.sizeOf(context).height * 00.07472,
+            hieght: MediaQuery.sizeOf(context).height * 00.0536,
             width: MediaQuery.sizeOf(context).width * 0.80697,
           ),
 
@@ -131,7 +130,7 @@ class _SignupBodyState extends State<SignupBody> {
           CustomTextFeild(
             lable: "Password",
             hintText: "Password",
-            hight: MediaQuery.sizeOf(context).height * 00.07472,
+            hight: MediaQuery.sizeOf(context).height * 00.0536,
             width: MediaQuery.sizeOf(context).width * 0.80697,
           ),
           SizedBox(height: MediaQuery.sizeOf(context).height * 00.04399),
@@ -142,7 +141,7 @@ class _SignupBodyState extends State<SignupBody> {
               fontSize: 18,
 
               width: MediaQuery.sizeOf(context).width * 0.80697,
-              hieght: MediaQuery.sizeOf(context).height * 00.07472,
+              hieght: MediaQuery.sizeOf(context).height * 00.0536,
               lable: "Sign Up",
               Textcolor: Colors.white,
               onPressed: () {
@@ -162,10 +161,11 @@ class _SignupBodyState extends State<SignupBody> {
           ),
           SizedBox(height: MediaQuery.sizeOf(context).height * 00.0418),
           CustomRow(
+            decoration: TextDecoration.underline,
             lineWidth: MediaQuery.sizeOf(context).width * 0.12,
             linehieght: MediaQuery.sizeOf(context).height * 000.001,
             ontap: () {
-              Navigator.push(
+              Navigator.pop(
                 context,
                 MaterialPageRoute(builder: (context) => Scondloginscreen()),
               );

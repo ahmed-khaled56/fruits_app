@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_1/cores/widgets/responsive_text_method.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/customButtons.dart';
-import 'package:task_1/features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/custom_oprions.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/first_custom_column.dart';
 

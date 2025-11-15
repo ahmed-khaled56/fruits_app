@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
-import 'package:task_1/features/auth/presentation/views/signUp_screen.dart';
-import 'package:task_1/features/auth/presentation/views/widgets/customButtons.dart';
+import 'package:task_1/features/auth/presentation/views/otp_screen.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/custom_button.dart';
-import 'package:task_1/features/auth/presentation/views/widgets/custom_row.dart';
-import 'package:task_1/features/auth/presentation/views/widgets/custom_text_feild.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/first_custom_column.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/very_custom_textField.dart';
 
@@ -19,6 +16,7 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
   @override
   final _formKey = GlobalKey<FormState>();
 
+  @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
@@ -74,7 +72,7 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
           ),
 
           PhoneField(
-            hieght: MediaQuery.sizeOf(context).height * 00.07472,
+            hieght: MediaQuery.sizeOf(context).height * 00.0536,
             width: MediaQuery.sizeOf(context).width * 0.80697,
           ),
 
@@ -86,7 +84,7 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
               fontSize: 18,
 
               width: MediaQuery.sizeOf(context).width * 0.80697,
-              hieght: MediaQuery.sizeOf(context).height * 00.07472,
+              hieght: MediaQuery.sizeOf(context).height * 00.0536,
               lable: "Submit",
               Textcolor: Colors.white,
               onPressed: () {
@@ -99,6 +97,10 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
                 } else {
                   autovalidateMode:
                   AutovalidateMode.onUserInteraction;
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => OtpScreen()),
+                  );
                 }
               },
               buttoncolor: Color(0xff204F38),

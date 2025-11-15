@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 import 'package:task_1/features/auth/presentation/views/reset_passowrd_screen.dart';
 import 'package:task_1/features/auth/presentation/views/signUp_screen.dart';
-import 'package:task_1/features/auth/presentation/views/widgets/customButtons.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/custom_row.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/custom_text_feild.dart';
@@ -21,6 +19,7 @@ class _SecondLoginscreenbodyState extends State<SecondLoginscreenbody> {
   @override
   final _formKey = GlobalKey<FormState>();
 
+  @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
@@ -76,7 +75,7 @@ class _SecondLoginscreenbodyState extends State<SecondLoginscreenbody> {
           ),
 
           PhoneField(
-            hieght: MediaQuery.sizeOf(context).height * 00.07472,
+            hieght: MediaQuery.sizeOf(context).height * 00.0536,
             width: MediaQuery.sizeOf(context).width * 0.80697,
           ),
 
@@ -118,7 +117,7 @@ class _SecondLoginscreenbodyState extends State<SecondLoginscreenbody> {
           CustomTextFeild(
             lable: "Password",
             hintText: "Password",
-            hight: MediaQuery.sizeOf(context).height * 00.07472,
+            hight: MediaQuery.sizeOf(context).height * 00.0536,
             width: MediaQuery.sizeOf(context).width * 0.80697,
           ),
           SizedBox(height: MediaQuery.sizeOf(context).height * 00.04399),
@@ -136,30 +135,30 @@ class _SecondLoginscreenbodyState extends State<SecondLoginscreenbody> {
                 padding: EdgeInsets.only(
                   right: MediaQuery.sizeOf(context).width * 0.088,
                 ),
-                child: Column(
-                  // crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Forget Password?",
-                      style: TextStyle(
-                        fontSize: getResponsiveFontSize(
-                          fontSize: 18,
-                          context: context,
-                        ),
-                        fontWeight: FontWeight.normal,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ResetPassowrdScreen(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "Forget Password?",
+                    style: TextStyle(
+                      decoration: TextDecoration.underline,
+                      decorationThickness: 2,
+                      decorationColor: Colors.blue,
+                      fontSize: getResponsiveFontSize(
+                        fontSize: 18,
+                        context: context,
+                      ),
+                      fontWeight: FontWeight.normal,
 
-                        color: Color(0xff004D8E),
-                      ),
-                    ),
-                    Container(
-                      width: MediaQuery.sizeOf(context).width * 0.36,
-                      height: MediaQuery.sizeOf(context).height * .0007,
                       color: Color(0xff004D8E),
-                      margin: EdgeInsets.only(
-                        top: MediaQuery.sizeOf(context).height * .00429,
-                      ),
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),
@@ -172,7 +171,7 @@ class _SecondLoginscreenbodyState extends State<SecondLoginscreenbody> {
               fontSize: 18,
 
               width: MediaQuery.sizeOf(context).width * 0.80697,
-              hieght: MediaQuery.sizeOf(context).height * 00.07472,
+              hieght: MediaQuery.sizeOf(context).height * 00.0536,
               lable: "LogIn",
               Textcolor: Colors.white,
               onPressed: () {
@@ -192,6 +191,7 @@ class _SecondLoginscreenbodyState extends State<SecondLoginscreenbody> {
           ),
           SizedBox(height: MediaQuery.sizeOf(context).height * 00.0418),
           CustomRow(
+            decoration: TextDecoration.underline,
             lineWidth: MediaQuery.sizeOf(context).width * 0.14,
             linehieght: MediaQuery.sizeOf(context).height * .0007,
             ontap: () {

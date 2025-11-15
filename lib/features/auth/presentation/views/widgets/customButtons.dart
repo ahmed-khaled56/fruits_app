@@ -11,7 +11,7 @@ class CustomButtons extends StatelessWidget {
         CustomButton2(
           fontSize: 13,
           width: MediaQuery.of(context).size.width * 0.76,
-          hieght: MediaQuery.of(context).size.height * 0.066,
+          hieght: MediaQuery.of(context).size.height * 0.054721,
 
           imageLink: "assets/images/Icon material-local-phone.png",
           buttoncolor: Colors.white,
@@ -25,7 +25,7 @@ class CustomButtons extends StatelessWidget {
         CustomButton2(
           fontSize: 13,
           width: MediaQuery.of(context).size.width * 0.76,
-          hieght: MediaQuery.of(context).size.height * 0.066,
+          hieght: MediaQuery.of(context).size.height * 0.054721,
           imageLink: "assets/images/google.png",
           buttoncolor: Colors.white,
 
@@ -37,7 +37,7 @@ class CustomButtons extends StatelessWidget {
         CustomButton2(
           fontSize: 13,
           width: MediaQuery.of(context).size.width * 0.76,
-          hieght: MediaQuery.of(context).size.height * 0.066,
+          hieght: MediaQuery.of(context).size.height * 0.054721,
           imageLink: "assets/images/feacbok.png",
           buttoncolor: Color(0xff235C95),
 

@@ -13,6 +13,7 @@ class CustomRow extends StatelessWidget {
     required this.ontap,
     @required this.lineWidth,
     @required this.linehieght,
+    @required this.decoration,
   });
   final String text1;
   final String text2;
@@ -23,6 +24,7 @@ class CustomRow extends StatelessWidget {
   final void Function()? ontap;
   final double? lineWidth;
   final double? linehieght;
+  final TextDecoration? decoration;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -40,42 +42,44 @@ class CustomRow extends StatelessWidget {
         GestureDetector(
           onTap: ontap,
 
-          child: lineWidth != null
-              ? Column(
-                  children: [
-                    Text(
-                      text2,
-                      style: TextStyle(
-                        fontSize: getResponsiveFontSize(
-                          fontSize: 16,
-                          context: context,
-                        ),
-                        fontWeight: FontWeight.normal,
-                        color: color2,
-                      ),
-                    ),
+          // child: lineWidth != null
+          //     ? Column(
+          //         children: [
+          //           Text(
+          //             text2,
+          //             style: TextStyle(
+          //               fontSize: getResponsiveFontSize(
+          //                 fontSize: 16,
+          //                 context: context,
+          //               ),
+          //               fontWeight: FontWeight.normal,
+          //               color: color2,
+          //             ),
+          //           ),
 
-                    Container(
-                      width: lineWidth,
-                      height: linehieght,
-                      color: Color(0xff004D8E),
-                      margin: EdgeInsets.only(
-                        top: MediaQuery.sizeOf(context).height * .00429,
-                      ),
-                    ),
-                  ],
-                )
-              : Text(
-                  text2,
-                  style: TextStyle(
-                    fontSize: getResponsiveFontSize(
-                      fontSize: 16,
-                      context: context,
-                    ),
-                    fontWeight: FontWeight.normal,
-                    color: color2,
-                  ),
-                ),
+          //           Container(
+          //             width: lineWidth,
+          //             height: linehieght,
+          //             color: Color(0xff004D8E),
+          //             margin: EdgeInsets.only(
+          //               top: MediaQuery.sizeOf(context).height * .00429,
+          //             ),
+          //           ),
+          //         ],
+          //       )
+          child: Text(
+            text2,
+            style: TextStyle(
+              decoration: TextDecoration.underline,
+              decorationColor: decoration == null
+                  ? Colors.white
+                  : Colors.blue, // optional
+              decorationThickness: 3,
+              fontSize: getResponsiveFontSize(fontSize: 16, context: context),
+              fontWeight: FontWeight.normal,
+              color: color2,
+            ),
+          ),
         ),
       ],
     );
