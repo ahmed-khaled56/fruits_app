@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
-import 'package:task_1/features/fruits/presentaion/views/checkout_screen.dart';
+import 'package:task_1/features/payment/presentation/views/checkout_screen.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/basket_card.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/basket_lower_bar.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/Custom_upperbar.dart';
-import 'package:task_1/features/fruits/presentaion/views/widgets/checkout_screen_body.dart';
+import 'package:task_1/features/payment/presentation/views/widgets/checkout_screen_body.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/dotted_line.dart';
-import 'package:task_1/features/fruits/presentaion/views/widgets/price_row_text.dart';
+import 'package:task_1/features/payment/presentation/views/widgets/price_row_text.dart';
 
 class BasketScreenBody extends StatelessWidget {
   const BasketScreenBody({super.key});

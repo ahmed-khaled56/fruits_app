@@ -39,7 +39,7 @@ class _SelectTimeState extends State<SelectTime> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 border: Border.all(
-                  color: nowSelected ? Colors.black : Color(0xffE3E3E3),
+                  color: nowSelected ? Colors.black : Colors.grey,
                 ),
               ),
               child: Row(
