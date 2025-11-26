@@ -7,19 +7,24 @@ class PhoneField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Padding(
+      padding: EdgeInsets.only(
+        //top: MediaQuery.sizeOf(context).width * 0.03487,
+        //left: MediaQuery.sizeOf(context).width * 0.0353,
+        // bottom: MediaQuery.sizeOf(context).height * 0.01448,
+      ),
       child: Container(
-        width: width, // same as Figma width
-        height: hieght, // same as Figma height
+        width: width,
+        height: hieght,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(25), // 25 radius
-          border: Border.all(color: Colors.grey.shade300), // light border
+          borderRadius: BorderRadius.circular(25),
+          border: Border.all(color: Colors.grey.shade300),
         ),
         child: Row(
           children: [
             const SizedBox(width: 8),
-            // Country code section
+
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Row(
@@ -39,7 +44,7 @@ class PhoneField extends StatelessWidget {
               indent: 10,
               endIndent: 10,
             ),
-            // Text input field
+
             Expanded(
               child: TextFormField(
                 validator: (value) {

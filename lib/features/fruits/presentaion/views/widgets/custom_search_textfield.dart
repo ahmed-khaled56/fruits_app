@@ -1,14 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 
-class CustomSearchTextfield extends StatelessWidget {
+class CustomSearchTextfield extends StatefulWidget {
   const CustomSearchTextfield({super.key});
 
   @override
+  State<CustomSearchTextfield> createState() => _CustomSearchTextfieldState();
+}
+
+class _CustomSearchTextfieldState extends State<CustomSearchTextfield> {
+  @override
+  double portraitWidth(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.width < size.height ? size.width : size.height;
+  }
+
+  double portraitHeight(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.height > size.width ? size.height : size.width;
+  }
+
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.sizeOf(context).width * .9,
-      height: MediaQuery.sizeOf(context).height * .054,
+      width: portraitWidth(context) * .9,
+      height: portraitHeight(context) * .054,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Color(0xffFEFEFE),
@@ -18,15 +33,11 @@ class CustomSearchTextfield extends StatelessWidget {
 
         decoration: InputDecoration(
           prefixIcon: Padding(
-            padding: EdgeInsets.only(
-              left: MediaQuery.sizeOf(context).width * .073,
-            ),
+            padding: EdgeInsets.only(left: portraitWidth(context) * .073),
             child: Icon(Icons.search),
           ),
           hint: Padding(
-            padding: EdgeInsets.only(
-              left: MediaQuery.sizeOf(context).width * .0409,
-            ),
+            padding: EdgeInsets.only(left: portraitWidth(context) * .0409),
             child: Text(
               "What are you looking for?",
               style: TextStyle(

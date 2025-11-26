@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 
-class CardInfo extends StatelessWidget {
+class CardInfo extends StatefulWidget {
   const CardInfo({
     super.key,
     required this.sellerName,
@@ -22,6 +22,21 @@ class CardInfo extends StatelessWidget {
   final String? distance;
 
   @override
+  State<CardInfo> createState() => _CardInfoState();
+}
+
+class _CardInfoState extends State<CardInfo> {
+  double portraitWidth(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.width < size.height ? size.width : size.height;
+  }
+
+  double portraitHeight(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.height > size.width ? size.height : size.width;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,11 +45,9 @@ class CardInfo extends StatelessWidget {
         Row(
           children: [
             Padding(
-              padding: EdgeInsets.only(
-                right: MediaQuery.sizeOf(context).width * .01,
-              ),
+              padding: EdgeInsets.only(right: portraitWidth(context) * .01),
               child: Text(
-                sellerName ?? '',
+                widget.sellerName ?? '',
                 style: TextStyle(
                   fontSize: getResponsiveFontSize(
                     fontSize: 19,
@@ -46,12 +59,12 @@ class CardInfo extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            icon != null
+            widget.icon != null
                 ? Padding(
                     padding: EdgeInsets.only(
                       //right: MediaQuery.sizeOf(context).width * .20788,
                     ),
-                    child: Image.asset(icon!),
+                    child: Image.asset(widget.icon!),
                   )
                 : Padding(
                     padding: EdgeInsets.only(
@@ -65,7 +78,7 @@ class CardInfo extends StatelessWidget {
                 right: MediaQuery.sizeOf(context).width * .0488,
               ),
               child: Text(
-                "$rate",
+                "${widget.rate}",
                 style: TextStyle(
                   fontSize: getResponsiveFontSize(
                     fontSize: 14,
@@ -90,7 +103,7 @@ class CardInfo extends StatelessWidget {
               ),
             ),
             Text(
-              delevPrice ?? '',
+              widget.delevPrice ?? '',
               style: TextStyle(
                 fontSize: getResponsiveFontSize(fontSize: 14, context: context),
                 color: const Color(0xff656565),
@@ -102,8 +115,8 @@ class CardInfo extends StatelessWidget {
         Row(
           children: [
             Container(
-              width: MediaQuery.sizeOf(context).width * .0116,
-              height: MediaQuery.sizeOf(context).height * .004914,
+              width: portraitWidth(context) * .0116,
+              height: portraitHeight(context) * .004914,
               decoration: BoxDecoration(
                 color: Color(0xffC8C8C8),
                 borderRadius: BorderRadius.circular(20),
@@ -111,18 +124,18 @@ class CardInfo extends StatelessWidget {
             ),
             SizedBox(width: 8),
             Text(
-              openClosd ?? '',
+              widget.openClosd ?? '',
               style: TextStyle(
                 fontSize: getResponsiveFontSize(fontSize: 14, context: context),
-                color: openClosd == "open"
+                color: widget.openClosd == "open"
                     ? const Color(0xff00BB1A)
                     : const Color(0xffFF4A4A),
               ),
             ),
             SizedBox(width: 10),
             Container(
-              width: MediaQuery.sizeOf(context).width * .0116,
-              height: MediaQuery.sizeOf(context).height * .004914,
+              width: portraitWidth(context) * .0116,
+              height: portraitHeight(context) * .004914,
               decoration: BoxDecoration(
                 color: Color(0xffC8C8C8),
                 borderRadius: BorderRadius.circular(20),
@@ -131,7 +144,7 @@ class CardInfo extends StatelessWidget {
             SizedBox(width: 8),
             Expanded(
               child: Text(
-                foodName ?? '',
+                widget.foodName ?? '',
                 style: TextStyle(
                   fontSize: getResponsiveFontSize(
                     fontSize: 14,
@@ -145,7 +158,7 @@ class CardInfo extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  distance ?? '',
+                  widget.distance ?? '',
                   style: TextStyle(
                     fontSize: getResponsiveFontSize(
                       fontSize: 12,

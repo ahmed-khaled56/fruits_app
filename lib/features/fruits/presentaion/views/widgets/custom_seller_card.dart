@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/card_info.dart';
 
-class CustomSellerCard extends StatelessWidget {
+class CustomSellerCard extends StatefulWidget {
   const CustomSellerCard({
     super.key,
     @required this.icon,
@@ -24,11 +24,26 @@ class CustomSellerCard extends StatelessWidget {
   final double? rate;
 
   @override
+  State<CustomSellerCard> createState() => _CustomSellerCardState();
+}
+
+class _CustomSellerCardState extends State<CustomSellerCard> {
+  @override
+  double portraitWidth(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.width < size.height ? size.width : size.height;
+  }
+
+  double portraitHeight(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.height > size.width ? size.height : size.width;
+  }
+
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: MediaQuery.sizeOf(context).width * .0209,
-        vertical: MediaQuery.sizeOf(context).height * .00086,
+        horizontal: portraitWidth(context) * .0209,
+        vertical: portraitHeight(context) * .00086,
       ),
       child: Card(
         elevation: 5,
@@ -41,20 +56,20 @@ class CustomSellerCard extends StatelessWidget {
             children: [
               Image.asset(
                 "assets/images/sellerImage.png",
-                width: MediaQuery.sizeOf(context).width * .1906,
-                height: MediaQuery.sizeOf(context).height * .0879,
+                width: portraitWidth(context) * .1906,
+                height: portraitHeight(context) * .0879,
                 fit: BoxFit.cover,
               ),
-              SizedBox(width: MediaQuery.sizeOf(context).width * .04),
+              SizedBox(width: portraitHeight(context) * .04),
               Expanded(
                 child: CardInfo(
-                  sellerName: sellerName,
-                  icon: icon,
-                  rate: rate,
-                  delevPrice: delevPrice,
-                  openClosd: openClosd,
-                  foodName: foodName,
-                  distance: distance,
+                  sellerName: widget.sellerName,
+                  icon: widget.icon,
+                  rate: widget.rate,
+                  delevPrice: widget.delevPrice,
+                  openClosd: widget.openClosd,
+                  foodName: widget.foodName,
+                  distance: widget.distance,
                 ),
               ),
             ],

@@ -17,167 +17,199 @@ class SignupBody extends StatefulWidget {
 class _SignupBodyState extends State<SignupBody> {
   @override
   final _formKey = GlobalKey<FormState>();
+  double portraitWidth(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.width < size.height ? size.width : size.height;
+  }
+
+  double portraitHeight(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.height > size.width ? size.height : size.width;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          FirstCustomColumn(
-            icon: Icons.arrow_back_ios,
-            text: "Sign Up to Wikala",
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-              left: MediaQuery.sizeOf(context).width * 0.0953,
-              bottom: MediaQuery.sizeOf(context).height * 0.01448,
-              top: MediaQuery.sizeOf(context).height * 0.01697,
-            ),
-            child: Text(
-              "Full name",
-              style: TextStyle(
-                fontSize: getResponsiveFontSize(fontSize: 14, context: context),
-
-                fontWeight: FontWeight.normal,
-                color: Color(0xff858D9A),
+    return SafeArea(
+      child: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              FirstCustomColumn(
+                icon: Icons.arrow_back_ios,
+                text: "Sign Up to Wikala",
               ),
-            ),
-          ),
-          CustomTextFeild(
-            lable: "Full name",
-            hintText: "Firist and Last Name",
-            hight: MediaQuery.sizeOf(context).height * .0386,
-            width: MediaQuery.sizeOf(context).width * .8069,
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-              top: MediaQuery.sizeOf(context).width * 0.03487,
-              left: MediaQuery.sizeOf(context).width * 0.0953,
-              // bottom: MediaQuery.sizeOf(context).height * 0.01448,
-            ),
-            child: Row(
-              children: [
-                Text(
-                  "Phone Number with Whatsapp",
-                  style: TextStyle(
-                    fontSize: getResponsiveFontSize(
-                      fontSize: 14,
-                      context: context,
-                    ),
-
-                    fontWeight: FontWeight.normal,
-                    color: Color(0xff858D9A),
-                  ),
+              Padding(
+                padding: EdgeInsets.only(
+                  left: portraitWidth(context) * 0.099,
+                  bottom: portraitHeight(context) * 0.01448,
+                  top: portraitHeight(context) * 0.01697,
                 ),
-                Text(
-                  "*",
-                  style: TextStyle(
-                    fontSize: getResponsiveFontSize(
-                      fontSize: 14,
-                      context: context,
-                    ),
+                child: Row(
+                  children: [
+                    Text(
+                      "Full name",
+                      style: TextStyle(
+                        fontSize: getResponsiveFontSize(
+                          fontSize: 14,
+                          context: context,
+                        ),
 
-                    fontWeight: FontWeight.normal,
-                    color: Colors.red,
-                  ),
+                        fontWeight: FontWeight.normal,
+                        color: Color(0xff858D9A),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-
-          PhoneField(
-            hieght: MediaQuery.sizeOf(context).height * 00.0536,
-            width: MediaQuery.sizeOf(context).width * 0.80697,
-          ),
-
-          Padding(
-            padding: EdgeInsets.only(
-              top: MediaQuery.sizeOf(context).width * 0.03487,
-              left: MediaQuery.sizeOf(context).width * 0.0953,
-              // bottom: MediaQuery.sizeOf(context).height * 0.01448,
-            ),
-            child: Row(
-              children: [
-                Text(
-                  "Password",
-                  style: TextStyle(
-                    fontSize: getResponsiveFontSize(
-                      fontSize: 14,
-                      context: context,
+              ),
+              CustomTextFeild(
+                lable: "Full name",
+                hintText: "Firist and Last Name",
+                hight: portraitHeight(context) * .0386,
+                width: portraitWidth(context) * .8069,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: portraitHeight(context) * 0.03487,
+                      left: portraitWidth(context) * 0.0953,
+                      // bottom: MediaQuery.sizeOf(context).height * 0.01448,
                     ),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Phone Number with Whatsapp",
+                          style: TextStyle(
+                            fontSize: getResponsiveFontSize(
+                              fontSize: 14,
+                              context: context,
+                            ),
 
-                    fontWeight: FontWeight.normal,
-                    color: Color(0xff858D9A),
+                            fontWeight: FontWeight.normal,
+                            color: Color(0xff858D9A),
+                          ),
+                        ),
+                        Text(
+                          "*",
+                          style: TextStyle(
+                            fontSize: getResponsiveFontSize(
+                              fontSize: 14,
+                              context: context,
+                            ),
+
+                            fontWeight: FontWeight.normal,
+                            color: Colors.red,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Text(
-                  "*",
-                  style: TextStyle(
-                    fontSize: getResponsiveFontSize(
-                      fontSize: 14,
-                      context: context,
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: MediaQuery.sizeOf(context).width * 0.0103,
                     ),
 
-                    fontWeight: FontWeight.normal,
-                    color: Colors.red,
+                    child: PhoneField(
+                      hieght: portraitHeight(context) * 00.0536,
+                      width: portraitWidth(context) * 0.80697,
+                    ),
                   ),
+                ],
+              ),
+
+              Padding(
+                padding: EdgeInsets.only(
+                  top: portraitHeight(context) * 0.03487,
+                  left: portraitWidth(context) * 0.0953,
+                  // bottom: MediaQuery.sizeOf(context).height * 0.01448,
                 ),
-              ],
-            ),
-          ),
-          CustomTextFeild(
-            lable: "Password",
-            hintText: "Password",
-            hight: MediaQuery.sizeOf(context).height * 00.0536,
-            width: MediaQuery.sizeOf(context).width * 0.80697,
-          ),
-          SizedBox(height: MediaQuery.sizeOf(context).height * 00.04399),
-          Center(
-            child: CustomButton2(
-              fontWeight: FontWeight.bold,
+                child: Row(
+                  children: [
+                    Text(
+                      "Password",
+                      style: TextStyle(
+                        fontSize: getResponsiveFontSize(
+                          fontSize: 14,
+                          context: context,
+                        ),
 
-              fontSize: 18,
-
-              width: MediaQuery.sizeOf(context).width * 0.80697,
-              hieght: MediaQuery.sizeOf(context).height * 00.0536,
-              lable: "Sign Up",
-              Textcolor: Colors.white,
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Form submitted successfully'),
+                        fontWeight: FontWeight.normal,
+                        color: Color(0xff858D9A),
+                      ),
                     ),
+                    Text(
+                      "*",
+                      style: TextStyle(
+                        fontSize: getResponsiveFontSize(
+                          fontSize: 14,
+                          context: context,
+                        ),
+
+                        fontWeight: FontWeight.normal,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              CustomTextFeild(
+                lable: "Password",
+                hintText: "Password",
+                hight: portraitHeight(context) * 00.0536,
+                width: portraitWidth(context) * 0.80697,
+              ),
+              SizedBox(height: portraitHeight(context) * 00.04399),
+              Center(
+                child: CustomButton2(
+                  fontWeight: FontWeight.bold,
+
+                  fontSize: 18,
+
+                  width: portraitWidth(context) * 0.80697,
+                  hieght: portraitHeight(context) * 00.0536,
+                  lable: "Sign Up",
+                  Textcolor: Colors.white,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Form submitted successfully'),
+                        ),
+                      );
+                    } else {
+                      autovalidateMode:
+                      AutovalidateMode.onUserInteraction;
+                    }
+                  },
+                  buttoncolor: Color(0xff204F38),
+                ),
+              ),
+              SizedBox(height: portraitHeight(context) * 00.0418),
+              CustomRow(
+                decoration: TextDecoration.underline,
+                // lineWidth: MediaQuery.sizeOf(context).width * 0.12,
+                // linehieght: MediaQuery.sizeOf(context).height * 000.001,
+                ontap: () {
+                  Navigator.pop(
+                    context,
+                    MaterialPageRoute(builder: (context) => Scondloginscreen()),
                   );
-                } else {
-                  autovalidateMode:
-                  AutovalidateMode.onUserInteraction;
-                }
-              },
-              buttoncolor: Color(0xff204F38),
-            ),
+                },
+                fontsize1: 16,
+                fontsize2: 16,
+                color1: Colors.black,
+                color2: Color(0xff004D8E),
+                text1: "Already have an account? |",
+                text2: "Login",
+              ),
+              SizedBox(height: portraitHeight(context) * 00.0418),
+            ],
           ),
-          SizedBox(height: MediaQuery.sizeOf(context).height * 00.0418),
-          CustomRow(
-            decoration: TextDecoration.underline,
-            // lineWidth: MediaQuery.sizeOf(context).width * 0.12,
-            // linehieght: MediaQuery.sizeOf(context).height * 000.001,
-            ontap: () {
-              Navigator.pop(
-                context,
-                MaterialPageRoute(builder: (context) => Scondloginscreen()),
-              );
-            },
-            fontsize1: 16,
-            fontsize2: 16,
-            color1: Colors.black,
-            color2: Color(0xff004D8E),
-            text1: "Already have an account? |",
-            text2: "Login",
-          ),
-        ],
+        ),
       ),
     );
   }

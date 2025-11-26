@@ -15,60 +15,72 @@ class OtpScreenBody extends StatefulWidget {
 
 class _OtpScreenBodyState extends State<OtpScreenBody> {
   @override
-  @override
+  double portraitWidth(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.width < size.height ? size.width : size.height;
+  }
+
+  double portraitHeight(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.height > size.width ? size.height : size.width;
+  }
+
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        FirstCustomColumn(
-          icon: Icons.arrow_back_ios,
-          text: "Enter Received OTP",
-        ),
-        SizedBox(height: MediaQuery.sizeOf(context).height * .0557),
-        CustomOtp(),
-        SizedBox(height: MediaQuery.sizeOf(context).height * .0557),
-
-        //SizedBox(height: MediaQuery.sizeOf(context).height * 00.042225),
-        Center(
-          child: CustomButton2(
-            fontWeight: FontWeight.bold,
-
-            fontSize: 18,
-
-            width: MediaQuery.sizeOf(context).width * 0.80697,
-            hieght: MediaQuery.sizeOf(context).height * 00.0536,
-            lable: "Confirm",
-            Textcolor: Colors.white,
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomeView()),
-              );
-            },
-            buttoncolor: Color(0xff204F38),
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          FirstCustomColumn(
+            icon: Icons.arrow_back_ios,
+            text: "Enter Received OTP",
           ),
-        ),
-        SizedBox(height: MediaQuery.sizeOf(context).height * .04291),
-        Text(
-          "60",
+          SizedBox(height: portraitHeight(context) * .0557),
+          CustomOtp(),
+          SizedBox(height: portraitWidth(context) * .0557),
 
-          style: TextStyle(
-            color: Color(0xff707070),
-            fontSize: getResponsiveFontSize(fontSize: 30, context: context),
-            fontWeight: FontWeight.normal,
+          //SizedBox(height: MediaQuery.sizeOf(context).height * 00.042225),
+          Center(
+            child: CustomButton2(
+              fontWeight: FontWeight.bold,
+
+              fontSize: 18,
+
+              width: portraitWidth(context) * 0.80697,
+              hieght: portraitHeight(context) * 00.0536,
+              lable: "Confirm",
+              Textcolor: Colors.white,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeView()),
+                );
+              },
+              buttoncolor: Color(0xff204F38),
+            ),
           ),
-        ),
-        SizedBox(height: MediaQuery.sizeOf(context).height * .03648),
-        CustomRow(
-          ontap: () {},
-          fontsize1: 16,
-          fontsize2: 16,
-          color1: Colors.black,
-          color2: Color(0xff004D8E),
-          text1: "Not received? ",
-          text2: "Send Again",
-        ),
-      ],
+          SizedBox(height: portraitHeight(context) * .04291),
+          Text(
+            "60",
+
+            style: TextStyle(
+              color: Color(0xff707070),
+              fontSize: getResponsiveFontSize(fontSize: 30, context: context),
+              fontWeight: FontWeight.normal,
+            ),
+          ),
+          SizedBox(height: portraitHeight(context) * .03648),
+          CustomRow(
+            ontap: () {},
+            fontsize1: 16,
+            fontsize2: 16,
+            color1: Colors.black,
+            color2: Color(0xff004D8E),
+            text1: "Not received? ",
+            text2: "Send Again",
+          ),
+          SizedBox(height: portraitHeight(context) * 00.042225),
+        ],
+      ),
     );
   }
 }

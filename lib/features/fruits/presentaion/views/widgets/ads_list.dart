@@ -37,6 +37,16 @@ class _AdsListState extends State<AdsList> {
     });
   }
 
+  double portraitWidth(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.width < size.height ? size.width : size.height;
+  }
+
+  double portraitHeight(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.height > size.width ? size.height : size.width;
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -45,9 +55,9 @@ class _AdsListState extends State<AdsList> {
       // width: MediaQuery.of(context).size.width * .9,
       child: Padding(
         padding: EdgeInsets.only(
-          left: MediaQuery.of(context).size.width * .04,
+          left: portraitWidth(context) * .04,
 
-          right: MediaQuery.of(context).size.width * .03,
+          right: portraitWidth(context) * .03,
         ),
         child: ListView.builder(
           controller: _controller,
@@ -55,13 +65,11 @@ class _AdsListState extends State<AdsList> {
           itemCount: images.length,
           itemBuilder: (context, index) {
             return Padding(
-              padding: EdgeInsets.only(
-                right: MediaQuery.of(context).size.width * .04,
-              ),
+              padding: EdgeInsets.only(right: portraitWidth(context) * .04),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: SizedBox(
-                  width: MediaQuery.of(context).size.width * .9,
+                  width: portraitWidth(context) * .9,
                   child: Image(
                     image: AssetImage(images[index]),
                     fit: BoxFit.cover,

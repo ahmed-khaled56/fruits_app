@@ -24,6 +24,16 @@ class _HomeBodyScreenState extends State<HomeBodyScreen> {
     super.dispose();
   }
 
+  double portraitWidth(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.width < size.height ? size.width : size.height;
+  }
+
+  double portraitHeight(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.height > size.width ? size.height : size.width;
+  }
+
   bool isPressed = false;
 
   @override
@@ -33,13 +43,15 @@ class _HomeBodyScreenState extends State<HomeBodyScreen> {
         Expanded(
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.only(bottom: 20),
+              padding: EdgeInsets.only(bottom: portraitHeight(context) * .02),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   HomeUpperBar(onTap: () => setState(() => isPressed = true)),
 
                   isPressed == false
                       ? Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             AdsList(
                               onPageChanged: (index) {
@@ -51,14 +63,19 @@ class _HomeBodyScreenState extends State<HomeBodyScreen> {
                         )
                       : CustomSearchTextfield(),
 
-                  CategoriesList(
-                    namesList: ["Fruits", "Vegetables", "Phone", "Pets"],
-                    lisnksLIst: [
-                      "assets/images/resturant.png",
-                      "assets/images/farm.png",
-                      "assets/images/coffe.png",
-                      "assets/images/pharma.png",
-                    ],
+                  Center(
+                    child: SizedBox(
+                      width: portraitWidth(context) * 0.9,
+                      child: CategoriesList(
+                        namesList: ["Fruits", "Vegetables", "Phone", "Pets"],
+                        lisnksLIst: [
+                          "assets/images/resturant.png",
+                          "assets/images/farm.png",
+                          "assets/images/coffe.png",
+                          "assets/images/pharma.png",
+                        ],
+                      ),
+                    ),
                   ),
 
                   SellerList(),

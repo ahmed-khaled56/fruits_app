@@ -58,6 +58,7 @@ class _SellerListState extends State<SellerList> {
                 top: MediaQuery.sizeOf(context).height * .0001,
                 // bottom: MediaQuery.sizeOf(context).height * .01,
               ),
+              // physics: NeverScrollableScrollPhysics(),
               itemCount: cardsList.length,
               itemBuilder: (context, index) => GestureDetector(
                 onTap: () {

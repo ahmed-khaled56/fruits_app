@@ -15,21 +15,30 @@ class _CustomOtpState extends State<CustomOtp> {
   );
 
   @override
+  double portraitWidth(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.width < size.height ? size.width : size.height;
+  }
+
+  double portraitHeight(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.height > size.width ? size.height : size.width;
+  }
+
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
 
     return SizedBox(
-      width: size.width * .6139,
-      height: size.height * .0615,
+      width: portraitWidth(context) * .6139,
+      height: portraitHeight(context) * .0615,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center, // ✅ خليه يبدأ بدون مسافات
+        mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(4, (index) {
           return Row(
             children: [
-              // ✅ الدايرة نفسها
               Container(
-                width: size.width * .1139,
-                height: size.height * .0515,
+                width: portraitWidth(context) * .1139,
+                height: portraitHeight(context) * .0515,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
@@ -75,7 +84,7 @@ class _CustomOtpState extends State<CustomOtp> {
                 ),
               ),
 
-              if (index != 3) SizedBox(width: size.width * 0.025),
+              if (index != 3) SizedBox(width: portraitWidth(context) * 0.025),
             ],
           );
         }),

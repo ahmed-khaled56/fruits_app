@@ -15,13 +15,22 @@ class ResetPasswordBody extends StatefulWidget {
 class _ResetPasswordBodyState extends State<ResetPasswordBody> {
   @override
   final _formKey = GlobalKey<FormState>();
+  double portraitWidth(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.width < size.height ? size.width : size.height;
+  }
+
+  double portraitHeight(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return size.height > size.width ? size.height : size.width;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           FirstCustomColumn(
             icon: Icons.arrow_back_ios,
@@ -29,16 +38,16 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
           ),
           Padding(
             padding: EdgeInsets.only(
-              left: MediaQuery.sizeOf(context).width * 0.0953,
-              bottom: MediaQuery.sizeOf(context).height * 0.01448,
-              top: MediaQuery.sizeOf(context).height * 0.01697,
+              left: portraitWidth(context) * 0.0953,
+              bottom: portraitHeight(context) * 0.01448,
+              top: portraitHeight(context) * 0.01697,
             ),
           ),
 
           Padding(
             padding: EdgeInsets.only(
-              top: MediaQuery.sizeOf(context).width * 0.03487,
-              left: MediaQuery.sizeOf(context).width * 0.0953,
+              top: portraitHeight(context) * 0.03487,
+              left: portraitWidth(context) * 0.0953,
               // bottom: MediaQuery.sizeOf(context).height * 0.01448,
             ),
             child: Row(
@@ -72,19 +81,19 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
           ),
 
           PhoneField(
-            hieght: MediaQuery.sizeOf(context).height * 00.0536,
-            width: MediaQuery.sizeOf(context).width * 0.80697,
+            hieght: portraitHeight(context) * 00.0536,
+            width: portraitWidth(context) * 0.80697,
           ),
 
-          SizedBox(height: MediaQuery.sizeOf(context).height * 00.042225),
+          SizedBox(height: portraitHeight(context) * 00.042225),
           Center(
             child: CustomButton2(
               fontWeight: FontWeight.bold,
 
               fontSize: 18,
 
-              width: MediaQuery.sizeOf(context).width * 0.80697,
-              hieght: MediaQuery.sizeOf(context).height * 00.0536,
+              width: portraitWidth(context) * 0.80697,
+              hieght: portraitHeight(context) * 00.0536,
               lable: "Submit",
               Textcolor: Colors.white,
               onPressed: () {
