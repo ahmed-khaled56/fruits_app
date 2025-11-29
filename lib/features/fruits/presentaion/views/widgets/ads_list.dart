@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_1/cores/helper/landScapHndler.dart';
 
 class AdsList extends StatefulWidget {
   const AdsList({super.key, required this.onPageChanged});
@@ -37,20 +38,10 @@ class _AdsListState extends State<AdsList> {
     });
   }
 
-  double portraitWidth(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    return size.width < size.height ? size.width : size.height;
-  }
-
-  double portraitHeight(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    return size.height > size.width ? size.height : size.width;
-  }
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * .1,
+      height: portraitHeight(context) * .1,
 
       // width: MediaQuery.of(context).size.width * .9,
       child: Padding(

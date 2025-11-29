@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_1/cores/helper/landScapHndler.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 import 'package:task_1/features/payment/presentation/views/widgets/price_row_text.dart';
 
@@ -18,9 +19,7 @@ class customOrderDetails extends StatelessWidget {
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
-              padding: EdgeInsets.only(
-                bottom: MediaQuery.sizeOf(context).height * .02,
-              ),
+              padding: EdgeInsets.only(bottom: portraitHeight(context) * .02),
               child: Text(
                 "Order Details",
 
@@ -62,22 +61,20 @@ class customOrderDetails extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: MediaQuery.sizeOf(context).height * .01),
+          SizedBox(height: portraitHeight(context) * .01),
           PriceRowText(isTotal: false, title: "Subtotal", value: "36.00 "),
-          SizedBox(height: MediaQuery.sizeOf(context).height * .01),
+          SizedBox(height: portraitHeight(context) * .01),
           PriceRowText(
             isTotal: false,
             title: "Shipping Charges",
             value: "1.50  ",
           ),
-          SizedBox(height: MediaQuery.sizeOf(context).height * .001),
+          SizedBox(height: portraitHeight(context) * .001),
           Padding(
-            padding: EdgeInsets.only(
-              bottom: MediaQuery.sizeOf(context).height * .0098,
-            ),
+            padding: EdgeInsets.only(bottom: portraitHeight(context) * .0098),
             child: Center(
               child: Container(
-                height: MediaQuery.sizeOf(context).height * 0.001,
+                height: portraitHeight(context) * 0.001,
                 width: MediaQuery.sizeOf(context).width,
                 color: Color(0xffD9D9D9),
               ),

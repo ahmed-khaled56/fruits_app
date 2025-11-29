@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:task_1/cores/helper/landScapHndler.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
+import 'package:task_1/features/fruits/presentaion/views/favourite_screen.dart';
+import 'package:task_1/features/fruits/presentaion/views/order_screen.dart';
 import 'package:task_1/features/more/presentation/views/conditions_screen.dart';
 import 'package:task_1/features/more/presentation/views/contuct_screen.dart';
 import 'package:task_1/features/more/presentation/views/profile_screen.dart';
@@ -26,8 +28,26 @@ class MoreScreenBody extends StatelessWidget {
         title: "Profile",
         color: Colors.black,
       ),
-      cutomListTile(iconLink: "assets/images/myorders.png", title: "My Orders"),
-      cutomListTile(iconLink: "assets/images/fav.png", title: "Favorite"),
+      cutomListTile(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => OrderScreen()),
+          );
+        },
+        iconLink: "assets/images/myorders.png",
+        title: "My Orders",
+      ),
+      cutomListTile(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => FavouriteScreen()),
+          );
+        },
+        iconLink: "assets/images/fav.png",
+        title: "Favorite",
+      ),
       cutomListTile(
         iconLink: "assets/images/lang.png",
         title: "Language",

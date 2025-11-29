@@ -18,64 +18,66 @@ class _ProfileBodyState extends State<ProfileBody> {
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
-      child: Column(
-        children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Padding(
-                padding: EdgeInsets.only(
-                  top: portraitHeight(context) * 0.01697,
-                  left: portraitWidth(context) * 0.0953,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    top: portraitHeight(context) * 0.01697,
+                    left: portraitWidth(context) * 0.0953,
+                  ),
+                  child: Icon(Icons.arrow_back_ios, color: Colors.black),
                 ),
-                child: Icon(Icons.arrow_back_ios, color: Colors.black),
               ),
             ),
-          ),
-          SizedBox(height: portraitHeight(context) * .02),
-          customProfileImage(),
-          SizedBox(height: portraitHeight(context) * .01),
-          Text(
-            "Welcome, Ahmed",
-            style: TextStyle(
-              fontSize: getResponsiveFontSize(fontSize: 24, context: context),
-              fontWeight: FontWeight.normal,
-              color: Colors.black,
+            SizedBox(height: portraitHeight(context) * .02),
+            customProfileImage(),
+            SizedBox(height: portraitHeight(context) * .01),
+            Text(
+              "Welcome, Ahmed",
+              style: TextStyle(
+                fontSize: getResponsiveFontSize(fontSize: 24, context: context),
+                fontWeight: FontWeight.normal,
+                color: Colors.black,
+              ),
             ),
-          ),
-          SizedBox(height: portraitHeight(context) * .02),
-          createProfileBody(),
-          SizedBox(height: portraitHeight(context) * 00.04399),
-          Center(
-            child: CustomButton2(
-              fontWeight: FontWeight.bold,
+            SizedBox(height: portraitHeight(context) * .02),
+            createProfileBody(),
+            SizedBox(height: portraitHeight(context) * 00.04399),
+            Center(
+              child: CustomButton2(
+                fontWeight: FontWeight.bold,
 
-              fontSize: 18,
+                fontSize: 18,
 
-              width: portraitWidth(context) * 0.80697,
-              hieght: portraitHeight(context) * 00.0536,
-              lable: "Update",
-              Textcolor: Colors.white,
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Form submitted successfully'),
-                    ),
-                  );
-                } else {
-                  autovalidateMode:
-                  AutovalidateMode.onUserInteraction;
-                }
-              },
-              buttoncolor: Color(0xff204F38),
+                width: portraitWidth(context) * 0.80697,
+                hieght: portraitHeight(context) * 00.0536,
+                lable: "Update",
+                Textcolor: Colors.white,
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Form submitted successfully'),
+                      ),
+                    );
+                  } else {
+                    autovalidateMode:
+                    AutovalidateMode.onUserInteraction;
+                  }
+                },
+                buttoncolor: Color(0xff204F38),
+              ),
             ),
-          ),
-          SizedBox(height: portraitHeight(context) * 00.0418),
-        ],
+            SizedBox(height: portraitHeight(context) * 00.0418),
+          ],
+        ),
       ),
     );
   }

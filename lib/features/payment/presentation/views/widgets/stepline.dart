@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_1/cores/helper/landScapHndler.dart';
 
 class DashedLine extends StatelessWidget {
   const DashedLine({super.key});
@@ -7,16 +8,16 @@ class DashedLine extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        const dashWidth = 6.0;
-        const dashSpace = 4.0;
+        var dashWidth = portraitHeight(context) * .00643;
+        var dashSpace = portraitWidth(context) * .0093;
         final count = (constraints.maxWidth / (dashWidth + dashSpace)).floor();
 
         return Row(
           children: List.generate(count, (index) {
             return Container(
               width: dashWidth,
-              height: 2,
-              margin: const EdgeInsets.only(right: dashSpace),
+              height: portraitHeight(context) * .0021459,
+              margin: EdgeInsets.only(right: dashSpace),
               color: const Color(0xff9F9F9F),
             );
           }),

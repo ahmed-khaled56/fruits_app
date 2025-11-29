@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_1/cores/helper/landScapHndler.dart';
 import 'package:task_1/features/payment/presentation/views/widgets/stepTap.dart';
 import 'package:task_1/features/payment/presentation/views/widgets/stepdot.dart';
 import 'package:task_1/features/payment/presentation/views/widgets/stepline.dart';
@@ -33,20 +34,20 @@ class _SteperCheckoutState extends State<SteperCheckout> {
       children: [
         Padding(
           padding: EdgeInsets.only(
-            left: MediaQuery.sizeOf(context).width * .128,
-            right: MediaQuery.sizeOf(context).width * .128,
-            top: MediaQuery.sizeOf(context).width * .005,
+            left: portraitWidth(context) * .128,
+            right: portraitWidth(context) * .128,
+            top: portraitHeight(context) * .005,
           ),
           child: Row(
             children: [
               Stepdot(active: widget.Dactive1),
-              const SizedBox(width: 10),
-              const Expanded(child: DashedLine()),
-              const SizedBox(width: 6),
+              SizedBox(width: portraitWidth(context) * .0139),
+              Expanded(child: DashedLine()),
+              SizedBox(width: portraitWidth(context) * .0139),
               Stepdot(active: widget.Dactive2),
-              const SizedBox(width: 6),
-              const Expanded(child: DashedLine()),
-              const SizedBox(width: 6),
+              SizedBox(width: portraitWidth(context) * .0139),
+              Expanded(child: DashedLine()),
+              SizedBox(width: portraitWidth(context) * .0139),
               Stepdot(active: widget.Dactive3),
             ],
           ),

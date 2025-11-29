@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_1/cores/helper/landScapHndler.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 
 class CustomPayment extends StatelessWidget {
@@ -17,10 +18,10 @@ class CustomPayment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: MediaQuery.sizeOf(context).height * .01),
+      padding: EdgeInsets.only(bottom: portraitHeight(context) * .01),
       child: Column(
         children: [
-          SizedBox(height: MediaQuery.sizeOf(context).height * .01),
+          SizedBox(height: portraitHeight(context) * .01),
           GestureDetector(
             onTap: onTap,
 
@@ -29,8 +30,8 @@ class CustomPayment extends StatelessWidget {
                 // horizontal: MediaQuery.sizeOf(context).width * .009,
               ),
               padding: EdgeInsets.symmetric(
-                horizontal: MediaQuery.sizeOf(context).width * .047,
-                vertical: MediaQuery.sizeOf(context).height * .015,
+                horizontal: portraitWidth(context) * .047,
+                vertical: portraitHeight(context) * .015,
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -40,7 +41,7 @@ class CustomPayment extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                      right: MediaQuery.sizeOf(context).width * .03,
+                      right: portraitWidth(context) * .03,
                     ),
                     child: Image(image: AssetImage(imageLink)),
                   ),
@@ -68,12 +69,11 @@ class CustomPayment extends StatelessWidget {
                         )
                       : Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal:
-                                MediaQuery.sizeOf(context).width * .0049,
+                            horizontal: portraitWidth(context) * .0049,
                           ),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width * .06046,
-                            height: MediaQuery.sizeOf(context).height * .02875,
+                            width: portraitWidth(context) * .06046,
+                            height: portraitHeight(context) * .02875,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(color: Colors.black, width: 2),

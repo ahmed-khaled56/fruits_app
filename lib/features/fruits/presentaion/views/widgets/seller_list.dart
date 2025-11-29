@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:task_1/cores/helper/landScapHndler.dart';
 import 'package:task_1/features/fruits/presentaion/views/seller_screen.dart';
 import 'package:task_1/features/payment/presentation/views/widgets/TextRow.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/custom_seller_card.dart';

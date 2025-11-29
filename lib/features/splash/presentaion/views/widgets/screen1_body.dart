@@ -10,10 +10,6 @@ class Screen1Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final realHeight = size.height > size.width ? size.height : size.width;
-    final realWidth = size.width < size.height ? size.width : size.height;
-
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -57,7 +53,7 @@ class Screen1Body extends StatelessWidget {
               color: Color(0xff78787C),
             ),
           ),
-          SizedBox(height: portraitHeight(context) * 0.056),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.056),
           Image(
             image: AssetImage("assets/images/dot.png"),
 

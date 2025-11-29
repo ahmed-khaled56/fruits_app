@@ -22,36 +22,44 @@ class _CustomSearchTextfieldState extends State<CustomSearchTextfield> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: portraitWidth(context) * .9,
-      height: portraitHeight(context) * .054,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Color(0xffFEFEFE),
-      ),
-      child: TextField(
-        onChanged: (value) {},
-
-        decoration: InputDecoration(
-          prefixIcon: Padding(
-            padding: EdgeInsets.only(left: portraitWidth(context) * .073),
-            child: Icon(Icons.search),
+    return Center(
+      child: Padding(
+        padding: EdgeInsets.only(top: portraitHeight(context) * .0094),
+        child: Container(
+          width: MediaQuery.sizeOf(context).width * .9,
+          height: portraitHeight(context) * .054,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Color(0xffFEFEFE),
           ),
-          hint: Padding(
-            padding: EdgeInsets.only(left: portraitWidth(context) * .0409),
-            child: Text(
-              "What are you looking for?",
-              style: TextStyle(
-                fontSize: getResponsiveFontSize(fontSize: 14, context: context),
-                fontWeight: FontWeight.normal,
-                color: Color(0xff8A8B8B),
+          child: TextField(
+            onChanged: (value) {},
+
+            decoration: InputDecoration(
+              prefixIcon: Padding(
+                padding: EdgeInsets.only(left: portraitWidth(context) * .073),
+                child: Icon(Icons.search),
               ),
+              hint: Padding(
+                padding: EdgeInsets.only(left: portraitWidth(context) * .0409),
+                child: Text(
+                  "What are you looking for?",
+                  style: TextStyle(
+                    fontSize: getResponsiveFontSize(
+                      fontSize: 14,
+                      context: context,
+                    ),
+                    fontWeight: FontWeight.normal,
+                    color: Color(0xff8A8B8B),
+                  ),
+                ),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Color(0xff8A8B8B), width: 1),
+              ),
+              border: OutlineInputBorder(),
             ),
           ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Color(0xff8A8B8B), width: 1),
-          ),
-          border: OutlineInputBorder(),
         ),
       ),
     );

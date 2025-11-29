@@ -11,33 +11,35 @@ class ContuctBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        CustomUpperbar(title: "Contact Us"),
-        SizedBox(height: portraitHeight(context) * .02),
-        ContactTextField(),
-        SizedBox(height: portraitHeight(context) * .02),
-        CustomButton2(
-          Textcolor: Colors.white,
-          lable: "Submit",
-          buttoncolor: Color(0xff204F38),
-          fontSize: getResponsiveFontSize(fontSize: 18, context: context),
-          fontWeight: FontWeight.bold,
-          onPressed: () {},
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CustomUpperbar(title: "Contact Us"),
+          SizedBox(height: portraitHeight(context) * .02),
+          ContactTextField(),
+          SizedBox(height: portraitHeight(context) * .02),
+          CustomButton2(
+            Textcolor: Colors.white,
+            lable: "Submit",
+            buttoncolor: Color(0xff204F38),
+            fontSize: getResponsiveFontSize(fontSize: 18, context: context),
+            fontWeight: FontWeight.bold,
+            onPressed: () {},
 
-          hieght: portraitHeight(context) * .0547,
-          width: portraitWidth(context) * .8069,
-        ),
-        SizedBox(height: portraitHeight(context) * .02),
-        Align(
-          alignment: Alignment.center,
-          child: Padding(
-            padding: EdgeInsets.only(left: portraitWidth(context) * .15),
-            child: SocialRow(),
+            hieght: portraitHeight(context) * .0547,
+            width: portraitWidth(context) * .8069,
           ),
-        ),
-      ],
+          SizedBox(height: portraitHeight(context) * .02),
+          Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: EdgeInsets.only(left: portraitWidth(context) * .15),
+              child: SocialRow(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

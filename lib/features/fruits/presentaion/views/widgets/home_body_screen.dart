@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_1/cores/helper/landScapHndler.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/ads_list.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/categories_list.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/custom_search_textfield.dart';
@@ -21,16 +22,6 @@ class _HomeBodyScreenState extends State<HomeBodyScreen> {
   void dispose() {
     _pageController.dispose();
     super.dispose();
-  }
-
-  double portraitWidth(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    return size.width < size.height ? size.width : size.height;
-  }
-
-  double portraitHeight(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    return size.height > size.width ? size.height : size.width;
   }
 
   bool isPressed = false;
@@ -56,7 +47,12 @@ class _HomeBodyScreenState extends State<HomeBodyScreen> {
                     ScrollDotsIndicator(currentIndex: currentIndex),
                   ],
                 )
-              : CustomSearchTextfield(),
+              : Padding(
+                  padding: EdgeInsets.only(
+                    bottom: portraitHeight(context) * .0094,
+                  ),
+                  child: CustomSearchTextfield(),
+                ),
         ),
 
         SliverToBoxAdapter(

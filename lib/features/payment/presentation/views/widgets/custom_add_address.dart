@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_1/cores/helper/landScapHndler.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 
 class custom_add_address extends StatelessWidget {
@@ -7,12 +8,10 @@ class custom_add_address extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(
-        horizontal: MediaQuery.sizeOf(context).width * .037,
-      ),
+      margin: EdgeInsets.symmetric(horizontal: portraitWidth(context) * .037),
       padding: EdgeInsets.symmetric(
-        horizontal: MediaQuery.sizeOf(context).width * .037,
-        vertical: MediaQuery.sizeOf(context).height * .015,
+        horizontal: portraitWidth(context) * .037,
+        vertical: portraitHeight(context) * .015,
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),

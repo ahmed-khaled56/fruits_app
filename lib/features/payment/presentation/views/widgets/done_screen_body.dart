@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_1/cores/helper/landScapHndler.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/Custom_upperbar.dart';
@@ -19,11 +20,11 @@ class DoneScreenBody extends StatelessWidget {
           children: [
             CustomUpperbar(title: "Checkout"),
 
-            SizedBox(height: MediaQuery.sizeOf(context).height * .08),
+            SizedBox(height: portraitHeight(context) * .08),
 
             Image(image: AssetImage("assets/images/done.png")),
 
-            SizedBox(height: MediaQuery.sizeOf(context).height * .06),
+            SizedBox(height: portraitHeight(context) * .06),
 
             Text(
               "YOUR ORDER IS CONFIRMED!",
@@ -35,7 +36,7 @@ class DoneScreenBody extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: MediaQuery.sizeOf(context).height * .02),
+            SizedBox(height: portraitHeight(context) * .02),
 
             Text(
               "Your order code: #243188",
@@ -45,7 +46,7 @@ class DoneScreenBody extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: MediaQuery.sizeOf(context).height * .01),
+            SizedBox(height: portraitHeight(context) * .01),
 
             Text(
               "Thank you for choosing our products!",
@@ -56,7 +57,7 @@ class DoneScreenBody extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: MediaQuery.sizeOf(context).height * .05),
+            SizedBox(height: portraitHeight(context) * .05),
 
             /// زرار Continue Shopping
             CustomButton2(
@@ -71,13 +72,12 @@ class DoneScreenBody extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => FailureScreen()),
                 );
               },
-              hieght: MediaQuery.sizeOf(context).height * .0547,
-              width: MediaQuery.sizeOf(context).width * .8069,
+              hieght: portraitHeight(context) * .0547,
+              width: portraitWidth(context) * .8069,
             ),
 
-            SizedBox(height: MediaQuery.sizeOf(context).height * .02),
+            SizedBox(height: portraitHeight(context) * .02),
 
-            /// زرار Track Order
             CustomButton2(
               Textcolor: Color(0xff204F38),
               lable: "Track Order",
@@ -85,11 +85,11 @@ class DoneScreenBody extends StatelessWidget {
               fontSize: getResponsiveFontSize(fontSize: 18, context: context),
               fontWeight: FontWeight.bold,
               onPressed: () {},
-              hieght: MediaQuery.sizeOf(context).height * .0547,
-              width: MediaQuery.sizeOf(context).width * .8069,
+              hieght: portraitHeight(context) * .0547,
+              width: portraitWidth(context) * .8069,
             ),
 
-            SizedBox(height: MediaQuery.sizeOf(context).height * .04),
+            SizedBox(height: portraitHeight(context) * .04),
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_1/cores/helper/landScapHndler.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:task_1/features/payment/presentation/views/failure_screen.dart';
@@ -9,57 +10,59 @@ class FailureScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        CustomUpperbar(title: "Checkout"),
-        SizedBox(height: MediaQuery.sizeOf(context).height * .12),
-        Image(image: AssetImage("assets/images/failure.png")),
-        SizedBox(height: MediaQuery.sizeOf(context).height * .06),
-        Text(
-          "OPS!",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Color(0xffFF4A4A),
-            fontSize: getResponsiveFontSize(fontSize: 26, context: context),
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CustomUpperbar(title: "Checkout"),
+          SizedBox(height: portraitHeight(context) * .12),
+          Image(image: AssetImage("assets/images/failure.png")),
+          SizedBox(height: portraitHeight(context) * .06),
+          Text(
+            "OPS!",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Color(0xffFF4A4A),
+              fontSize: getResponsiveFontSize(fontSize: 26, context: context),
 
-            fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        SizedBox(height: MediaQuery.sizeOf(context).height * .02),
+          SizedBox(height: portraitHeight(context) * .02),
 
-        Text(
-          textAlign: TextAlign.center,
-          "Error while confirming your payment/order",
+          Text(
+            textAlign: TextAlign.center,
+            "Error while confirming your payment/order",
 
-          style: TextStyle(
-            color: Color(0xff656565),
+            style: TextStyle(
+              color: Color(0xff656565),
+              fontSize: getResponsiveFontSize(fontSize: 18, context: context),
+
+              fontWeight: FontWeight.normal,
+            ),
+          ),
+
+          SizedBox(height: portraitHeight(context) * .06),
+
+          CustomButton2(
+            Textcolor: Colors.white,
+
+            lable: "Back",
+            buttoncolor: Color(0xffFF4A4A),
             fontSize: getResponsiveFontSize(fontSize: 18, context: context),
-
-            fontWeight: FontWeight.normal,
+            fontWeight: FontWeight.bold,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FailureScreen()),
+              );
+            },
+            hieght: portraitHeight(context) * .0547,
+            width: portraitWidth(context) * .8069,
           ),
-        ),
-
-        SizedBox(height: MediaQuery.sizeOf(context).height * .06),
-
-        CustomButton2(
-          Textcolor: Colors.white,
-
-          lable: "Back",
-          buttoncolor: Color(0xffFF4A4A),
-          fontSize: getResponsiveFontSize(fontSize: 18, context: context),
-          fontWeight: FontWeight.bold,
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => FailureScreen()),
-            );
-          },
-          hieght: MediaQuery.sizeOf(context).height * .0547,
-          width: MediaQuery.sizeOf(context).width * .8069,
-        ),
-        SizedBox(height: MediaQuery.sizeOf(context).height * .02),
-      ],
+          SizedBox(height: portraitHeight(context) * .02),
+        ],
+      ),
     );
   }
 }

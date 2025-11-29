@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_1/cores/helper/landScapHndler.dart';
 
 class SplashViewBodyPhoneLayout extends StatelessWidget {
   const SplashViewBodyPhoneLayout({super.key});
@@ -33,8 +34,8 @@ class SplashViewBodyPhoneLayout extends StatelessWidget {
           fit: FlexFit.tight,
           child: Image.asset(
             "assets/images/3434341.png",
-            fit: BoxFit.contain,
-            width: w,
+            fit: BoxFit.fill,
+            width: portraitWidth(context),
           ),
         ),
       ],

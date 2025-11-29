@@ -23,7 +23,7 @@ class _CategoriesListState extends State<CategoriesList> {
         //left: portraitWidth(context) * .0367
       ),
       child: SizedBox(
-        height: portraitHeight(context) * .1341, //
+        height: portraitHeight(context) * .2041, //
         child: ListView.builder(
           itemCount: widget.lisnksLIst.length,
           scrollDirection: Axis.horizontal,

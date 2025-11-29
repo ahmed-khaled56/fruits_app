@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:task_1/cores/helper/landScapHndler.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:task_1/features/payment/presentation/views/widgets/cuatom_order_details.dart';
 import 'package:task_1/features/payment/presentation/views/done_screen.dart';
 import 'package:task_1/features/payment/presentation/views/widgets/Custom_copon.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/Custom_upperbar.dart';
-import 'package:task_1/features/fruits/presentaion/views/widgets/basket_lower_bar.dart';
 import 'package:task_1/features/payment/presentation/views/widgets/custom_payment.dart';
-import 'package:task_1/features/payment/presentation/views/widgets/price_row_text.dart';
 import 'package:task_1/features/payment/presentation/views/widgets/steper_chseckOut.dart';
 
 class CheckoutPaymentBody extends StatefulWidget {
@@ -31,7 +30,7 @@ class _CheckoutPaymentBodyState extends State<CheckoutPaymentBody> {
         children: [
           CustomUpperbar(title: "Checkout"),
 
-          SizedBox(height: MediaQuery.sizeOf(context).height * .001),
+          SizedBox(height: portraitHeight(context) * .001),
           SteperCheckout(
             active1: false,
             active2: false,
@@ -41,28 +40,26 @@ class _CheckoutPaymentBodyState extends State<CheckoutPaymentBody> {
             Dactive2: curentIndex == 1,
             Dactive3: curentIndex >= 2,
           ),
-          SizedBox(height: MediaQuery.sizeOf(context).height * .01),
+          SizedBox(height: portraitHeight(context) * .01),
           Padding(
-            padding: EdgeInsets.only(
-              bottom: MediaQuery.sizeOf(context).height * .016,
-            ),
+            padding: EdgeInsets.only(bottom: portraitHeight(context) * .016),
             child: Container(
-              height: MediaQuery.sizeOf(context).height * 0.001,
+              height: portraitHeight(context) * 0.001,
               width: MediaQuery.sizeOf(context).width,
               color: Color(0xffBFBFBF),
             ),
           ),
 
-          SizedBox(height: MediaQuery.sizeOf(context).height * .001),
+          SizedBox(height: portraitHeight(context) * .001),
           customCopon(),
-          SizedBox(height: MediaQuery.sizeOf(context).height * .02),
+          SizedBox(height: portraitHeight(context) * .02),
           Column(
             children: [
               customOrderDetails(isTotal: isTotal),
-              SizedBox(height: MediaQuery.sizeOf(context).height * .02),
+              SizedBox(height: portraitHeight(context) * .02),
               Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: MediaQuery.sizeOf(context).width * .037,
+                  horizontal: portraitWidth(context) * .037,
                 ),
                 child: Column(
                   children: [
@@ -133,8 +130,8 @@ class _CheckoutPaymentBodyState extends State<CheckoutPaymentBody> {
                           MaterialPageRoute(builder: (context) => DoneScreen()),
                         );
                       },
-                      hieght: MediaQuery.sizeOf(context).height * .0547,
-                      width: MediaQuery.sizeOf(context).width * .8069,
+                      hieght: portraitHeight(context) * .0547,
+                      width: portraitWidth(context) * .8069,
                     ),
                   ],
                 ),
@@ -142,7 +139,7 @@ class _CheckoutPaymentBodyState extends State<CheckoutPaymentBody> {
             ],
           ),
 
-          // Expanded(child: SizedBox(height: MediaQuery.sizeOf(context).height)),
+          SizedBox(height: MediaQuery.sizeOf(context).height * .01),
           // BasketLowerBar(),
         ],
       ),

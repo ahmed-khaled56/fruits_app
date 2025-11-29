@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:task_1/cores/helper/landScapHndler.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 import 'package:task_1/features/fruits/presentaion/views/product_screen.dart';
-import 'package:task_1/features/fruits/presentaion/views/search_screen.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/categories_list.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/custom_search_textfield.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/custom_seller_card.dart';
