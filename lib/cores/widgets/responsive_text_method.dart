@@ -12,7 +12,7 @@ double getResponsiveFontSize({
   responsiveFontSize.clamp(
     lowerLimit,
     upperLimit,
-  ); //NORMALIZE responsiveFontSize
+  ); 
   return responsiveFontSize;
 }
 

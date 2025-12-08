@@ -3,7 +3,6 @@ import 'package:task_1/cores/helper/landScapHndler.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:task_1/features/payment/presentation/views/failure_screen.dart';
-import 'package:task_1/features/fruits/presentaion/views/widgets/Custom_upperbar.dart';
 
 class FailureScreenBody extends StatelessWidget {
   const FailureScreenBody({super.key});

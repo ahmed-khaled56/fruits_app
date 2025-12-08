@@ -4,7 +4,6 @@ import 'package:task_1/cores/widgets/responsive_text_method.dart';
 import 'package:task_1/features/more/presentation/views/widgets/contact_textField.dart';
 import 'package:task_1/features/more/presentation/views/widgets/social_row.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/custom_button.dart';
-import 'package:task_1/features/fruits/presentaion/views/widgets/Custom_upperbar.dart';
 
 class ContuctBody extends StatelessWidget {
   const ContuctBody({super.key});

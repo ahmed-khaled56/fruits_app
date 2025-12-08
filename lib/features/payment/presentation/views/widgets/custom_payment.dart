@@ -36,7 +36,7 @@ class CustomPayment extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(color: Color(0xff656565)),
-              ),
+              ), 
               child: Row(
                 children: [
                   Padding(

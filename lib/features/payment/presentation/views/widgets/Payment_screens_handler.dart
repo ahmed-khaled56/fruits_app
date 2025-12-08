@@ -4,10 +4,7 @@ import 'package:task_1/features/payment/presentation/views/done_screen.dart';
 import 'package:task_1/features/payment/presentation/views/widgets/checkOut_payment_body.dart';
 import 'package:task_1/features/payment/presentation/views/widgets/checkout_address_body.dart';
 import 'package:task_1/features/payment/presentation/views/widgets/checkout_screen_body.dart';
-import 'package:task_1/features/payment/presentation/views/widgets/select_time.dart';
 import 'package:task_1/features/payment/presentation/views/widgets/steper_chseckOut.dart';
-import 'package:task_1/cores/widgets/responsive_text_method.dart';
-import 'package:task_1/features/auth/presentation/views/widgets/custom_button.dart';
 
 class CheckoutMainScreen extends StatefulWidget {
   const CheckoutMainScreen({super.key});

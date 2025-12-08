@@ -15,14 +15,23 @@ class MainLayout extends StatefulWidget {
 
 class _MainLayoutState extends State<MainLayout> {
   int index = 0;
-
-  final List<Widget> screens = [
-    HomeView(),
-    OrderScreen(),
-    BasketView(),
-    FavouriteScreen(),
-    MoreScreen(),
-  ];
+  late List<Widget> screens;
+  void initState() {
+    screens = [
+      HomeView(),
+      OrderScreen(),
+      BasketView(),
+      FavouriteScreen(),
+      MoreScreen(
+        changeTab: (i) {
+          setState(() {
+            index = i;
+          });
+        },
+      ),
+    ];
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

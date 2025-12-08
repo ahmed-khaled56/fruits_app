@@ -3,11 +3,8 @@ import 'package:task_1/cores/helper/landScapHndler.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:task_1/features/payment/presentation/views/widgets/cuatom_order_details.dart';
-import 'package:task_1/features/payment/presentation/views/done_screen.dart';
 import 'package:task_1/features/payment/presentation/views/widgets/Custom_copon.dart';
-import 'package:task_1/features/fruits/presentaion/views/widgets/Custom_upperbar.dart';
 import 'package:task_1/features/payment/presentation/views/widgets/custom_payment.dart';
-import 'package:task_1/features/payment/presentation/views/widgets/steper_chseckOut.dart';
 
 class CheckoutPaymentBody extends StatefulWidget {
   const CheckoutPaymentBody({super.key, this.currentIndex, this.onPressed});

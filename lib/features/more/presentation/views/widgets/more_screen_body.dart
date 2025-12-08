@@ -3,16 +3,17 @@ import 'package:task_1/cores/helper/landScapHndler.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 import 'package:task_1/features/fruits/presentaion/views/favourite_screen.dart';
 import 'package:task_1/features/fruits/presentaion/views/order_screen.dart';
+import 'package:task_1/features/fruits/presentaion/views/widgets/Lower_bar_screens_handler.dart';
 import 'package:task_1/features/more/presentation/views/conditions_screen.dart';
 import 'package:task_1/features/more/presentation/views/contuct_screen.dart';
 import 'package:task_1/features/more/presentation/views/profile_screen.dart';
 import 'package:task_1/features/more/presentation/views/widgets/custom_listTile.dart';
 import 'package:task_1/features/more/presentation/views/widgets/language_sheet.dart';
 import 'package:task_1/features/auth/presentation/views/widgets/custom_button.dart';
-import 'package:task_1/features/fruits/presentaion/views/widgets/Custom_upperbar.dart';
 
 class MoreScreenBody extends StatelessWidget {
-  const MoreScreenBody({super.key});
+  const MoreScreenBody({super.key, required this.changeTab});
+  final void Function(int)? changeTab;
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +30,7 @@ class MoreScreenBody extends StatelessWidget {
         color: Colors.black,
       ),
       cutomListTile(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => OrderScreen()),
-          );
-        },
+        onTap: () => changeTab?.call(1),
         iconLink: "assets/images/myorders.png",
         title: "My Orders",
       ),

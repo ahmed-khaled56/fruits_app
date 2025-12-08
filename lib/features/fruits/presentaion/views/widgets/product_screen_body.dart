@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_1/cores/helper/landScapHndler.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/Selection_column_weight.dart';
-import 'package:task_1/features/fruits/presentaion/views/widgets/product_appBar.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/product_card.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/product_image.dart';
 import 'package:task_1/features/fruits/presentaion/views/widgets/product_info.dart';
