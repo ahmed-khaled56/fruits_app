@@ -79,7 +79,7 @@ class LaocalNotificationService {
 
       "local Scheduled notification",
       "hello every body",
-      tz.TZDateTime(tz.local, 2025, 10, 25, 20, 10),
+      tz.TZDateTime(tz.local, 2025, 12, 19, 20, 22),
       details,
       payload: "Payload data",
     );

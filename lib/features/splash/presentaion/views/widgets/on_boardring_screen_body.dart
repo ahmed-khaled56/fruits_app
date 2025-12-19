@@ -54,6 +54,12 @@ class _OnBoardingState extends State<OnBoarding> {
           GestureDetector(
             onTap: () {
               LaocalNotificationService.basicNotofication();
+
+              // Future.delayed(const Duration(minutes: 1), () {
+              //   LaocalNotificationService.basicNotofication();
+              // });
+              //LaocalNotificationService.reabatedNotification();
+              //LaocalNotificationService.scheduledNotification();
             },
             child: Image.asset(
               "assets/images/screen1.png",
