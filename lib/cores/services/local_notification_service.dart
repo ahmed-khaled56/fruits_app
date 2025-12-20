@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:async';
 
@@ -80,6 +81,25 @@ class LaocalNotificationService {
       "local Scheduled notification",
       "hello every body",
       tz.TZDateTime(tz.local, 2025, 12, 19, 20, 22),
+      details,
+      payload: "Payload data",
+    );
+  }
+
+  static Future<void> pushForeground({required RemoteMessage message}) async {
+    NotificationDetails details = NotificationDetails(
+      android: AndroidNotificationDetails(
+        "id 0",
+        "Basic notifications",
+        priority: Priority.high,
+        importance: Importance.max,
+      ),
+    );
+    await flutterLocalNotificationsPlugin.show(
+      0,
+
+      message.notification!.title ?? "0",
+      message.notification!.body ?? "0",
       details,
       payload: "Payload data",
     );

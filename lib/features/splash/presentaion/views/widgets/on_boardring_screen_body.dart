@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_1/cores/helper/landScapHndler.dart';
-import 'package:task_1/cores/services/laocal_notification_service.dart';
+import 'package:task_1/cores/services/local_notification_service.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 import 'package:task_1/features/auth/presentation/views/login_screen.dart';
 import 'package:task_1/features/splash/presentaion/views/widgets/custom_button.dart';

@@ -1,14 +1,19 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:task_1/cores/services/laocal_notification_service.dart';
+import 'package:task_1/cores/services/local_notification_service.dart';
+import 'package:task_1/cores/services/push_notifications.dart';
 import 'package:task_1/features/splash/presentaion/views/splash_view.dart';
+import 'package:task_1/firebase_options.dart';
 import 'package:timezone/data/latest.dart' as tz;
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   tz.initializeTimeZones();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await LaocalNotificationService.initLocalNotify();
+  await PushNotifications.initPushNotf();
 
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -30,16 +35,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
-  // void initState() {
-  //   super.initState();
-  //   SystemChrome.setPreferredOrientations([
-  //     // await SystemChrome.setPreferredOrientations([
-  //     DeviceOrientation.portraitUp,
-  //     DeviceOrientation.portraitDown,
-  //     DeviceOrientation.landscapeLeft,
-  //     DeviceOrientation.landscapeRight,
-  //   ]);
-  // }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
