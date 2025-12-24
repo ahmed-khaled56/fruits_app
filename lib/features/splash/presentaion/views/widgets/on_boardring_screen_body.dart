@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:task_1/cores/helper/landScapHndler.dart';
-import 'package:task_1/cores/services/local_notification_service.dart';
 import 'package:task_1/cores/widgets/responsive_text_method.dart';
 import 'package:task_1/features/auth/presentation/views/login_screen.dart';
 import 'package:task_1/features/splash/presentaion/views/widgets/custom_button.dart';
@@ -53,13 +52,14 @@ class _OnBoardingState extends State<OnBoarding> {
 
           GestureDetector(
             onTap: () {
-              LaocalNotificationService.basicNotofication();
+              //LaocalNotificationService.basicNotofication();
+              print("preeesd!");
 
               // Future.delayed(const Duration(minutes: 1), () {
               //   LaocalNotificationService.basicNotofication();
               // });
-              //LaocalNotificationService.reabatedNotification();
-              //LaocalNotificationService.scheduledNotification();
+              // LaocalNotificationService.reabatedNotification();
+              // LaocalNotificationService.scheduledNotification();
             },
             child: Image.asset(
               "assets/images/screen1.png",

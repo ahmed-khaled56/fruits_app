@@ -2,10 +2,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:async';
 
-import 'package:flutter_timezone/flutter_timezone.dart';
-import 'package:timezone/timezone.dart' as tz;
-import 'package:timezone/data/latest.dart' as tz;
-
 class LaocalNotificationService {
   static FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
@@ -16,6 +12,12 @@ class LaocalNotificationService {
       iOS: DarwinInitializationSettings(),
     );
     flutterLocalNotificationsPlugin.initialize(settings);
+
+    await flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin
+        >()
+        ?.requestNotificationsPermission();
   }
 
   static Future<void> basicNotofication() async {
@@ -48,7 +50,8 @@ class LaocalNotificationService {
     );
 
     await flutterLocalNotificationsPlugin.periodicallyShow(
-      androidScheduleMode: AndroidScheduleMode.alarmClock,
+      // androidScheduleMode: AndroidScheduleMode.alarmClock,
+      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
       1,
 
       "local Reapeated notification",
@@ -59,32 +62,33 @@ class LaocalNotificationService {
     );
   }
 
-  static Future<void> scheduledNotification() async {
-    NotificationDetails details = NotificationDetails(
-      android: AndroidNotificationDetails(
-        "id 2",
-        "Scheduled notifications",
-        priority: Priority.high,
-        importance: Importance.max,
-      ),
-    );
+  // static Future<void> scheduledNotification() async {
+  //   NotificationDetails details = NotificationDetails(
+  //     android: AndroidNotificationDetails(
+  //       "id 2",
+  //       "Scheduled notifications",
+  //       priority: Priority.high,
+  //       importance: Importance.max,
+  //     ),
+  //   );
 
-    tz.initializeTimeZones();
-    final timeZoneInfo = await FlutterTimezone.getLocalTimezone();
+  //   tz.initializeTimeZones();
+  //   final timeZoneInfo = await FlutterTimezone.getLocalTimezone();
 
-    tz.setLocalLocation(tz.getLocation(timeZoneInfo.identifier));
+  //   tz.setLocalLocation(tz.getLocation(timeZoneInfo.identifier));
 
-    await flutterLocalNotificationsPlugin.zonedSchedule(
-      androidScheduleMode: AndroidScheduleMode.alarmClock,
-      2,
+  //   await flutterLocalNotificationsPlugin.zonedSchedule(
+  //     androidScheduleMode: AndroidScheduleMode.alarmClock,
+  //     2,
 
-      "local Scheduled notification",
-      "hello every body",
-      tz.TZDateTime(tz.local, 2025, 12, 19, 20, 22),
-      details,
-      payload: "Payload data",
-    );
-  }
+  //     "local Scheduled notification",
+  //     "hello every body",
+  //     tz.TZDateTime(tz.local, 2025, 12, 25, 14, 13),
+  //     details,
+
+  //     payload: "Payload data",
+  //   );
+  // }
 
   static Future<void> pushForeground({required RemoteMessage message}) async {
     NotificationDetails details = NotificationDetails(

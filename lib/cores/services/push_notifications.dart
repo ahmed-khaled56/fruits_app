@@ -1,8 +1,6 @@
 import 'dart:developer';
 
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:task_1/cores/helper/firebase_message_backgrounHandler.dart';
 import 'package:task_1/cores/services/local_notification_service.dart';
 
 class PushNotifications {
@@ -13,7 +11,7 @@ class PushNotifications {
     String? token = await firebaseMessaging.getToken();
     log("token is : $token");
 
-    FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
+    // FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
     handelForeGroundMessages();
   }
 

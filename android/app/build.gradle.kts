@@ -11,7 +11,7 @@ plugins {
 android {
     namespace = "com.example.task_1"
     compileSdk = 36
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "29.0.14206865"   //flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -30,7 +30,7 @@ android {
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
+        targetSdk = 34
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
@@ -45,6 +45,7 @@ android {
     }
 }
 dependencies {
+    implementation("com.onesignal:OneSignal:[5.1.0, 5.1.99]")
    // coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
     
